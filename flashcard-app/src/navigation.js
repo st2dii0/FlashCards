@@ -18,16 +18,18 @@ const HomeStack = createStackNavigator({
     Game: {
         screen: Game,
         navigationOptions:  {
-            title: 'Game',
-            //headerLeft: null
+            title: 'Question ?',
+            headerLeft: null,
+            headerStyle:{
+                backgroundColor: '#df4646',
+                borderBottomWidth: 0
+            }
         }
     },
   }, {
       initialRouteName: 'Main',
     }
     );
-
-
   
   const AppContainer = createAppContainer(HomeStack);
   
