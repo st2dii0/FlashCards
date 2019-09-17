@@ -9,15 +9,15 @@ App idea by [florinpop17] (https://github.com/florinpop17/app-ideas/blob/master/
 
 ## Requirements completed
 
--   [ ]**User can see a single card, randomly picked from the "deck" displayed at any point in time**
--   [ ]**User can see a question on the card and a list of four possible answers**
--   [ ]**User can select an answer by clicking on it**
--   [ ]**User can see an error displayed when the wrong answer is selected**
--   [ ]**User can see a congratulations message when the correct answer is selected**
+-   ✅**User can see a single card, randomly picked from the "deck" displayed at any point in time**
+-   ✅**User can see a question on the card and a list of four possible answers**
+-   ✅**User can select an answer by clicking on it**
+-   ✅**User can see an error displayed when the wrong answer is selected**
+-   ✅**User can see a congratulations message when the correct answer is selected**
 
 
 ## Install/Launch app
 
 `npm build`
 
-*crafted by @st2diio*
+##### *crafted by @st2diio*
