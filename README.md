@@ -18,6 +18,6 @@ App idea by [florinpop17] (https://github.com/florinpop17/app-ideas/blob/master/
 
 ## Install/Launch app
 
-`npm build`
+`npm run build`
 
 ##### *crafted by @st2diio*
