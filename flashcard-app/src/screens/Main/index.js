@@ -10,7 +10,7 @@ export default Main = ({ navigation }) => {
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center'}}>
             <Image source={require('../../../assets/flashcard.png')} />
             <Button danger onPress={() => navigation.navigate('Game')}>
-                <Text> Start </Text>
+                <Text>/ Start /</Text>
             </Button>
         </SafeAreaView>
     )
