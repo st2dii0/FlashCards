@@ -9,11 +9,12 @@ import { View, Root } from "native-base";
 export default Game = ({ navigation }) => {
     
     const [id_Holder, set_Id] = useState(0);
-
     useEffect(()=>{
         const Random_Id = Math.floor(Math.random() * 10) + 1;
         set_Id(Random_Id)  
     }, []);
+
+    
 
     return (
         <>
