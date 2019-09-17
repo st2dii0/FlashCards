@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Text } from 'react-native';
+import { Text, Alert } from 'react-native';
 import SafeAreaView from "react-native-safe-area-view";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import cards from './cards';
-import { View, Root, Item } from "native-base";
+import { View } from "native-base";
 
 
 export default Game = ({ navigation }) => {
-    const [id_Holder, set_Id] = useState(0);
+    const [id_Holder, set_Id, updatedState] = useState(0);
     const [card, setCard] = useState({});
 
     useEffect(() => {
@@ -15,12 +15,11 @@ export default Game = ({ navigation }) => {
         set_Id(Random_Id)
         get_card(Random_Id)
         card.answers
-    }, []);
+    }, [updatedState]);
 
     const get_card = (id) => {
         cards.map(item => {
             if (item.id === id) {
-                console.log(item);
                 return setCard(item)
             }
         })
@@ -28,18 +27,31 @@ export default Game = ({ navigation }) => {
     
     return (
         <>
+        <Text> How to play? Choose the correct answer between the 4 choices</Text>
             <SafeAreaView style={{ flex: 1, backgroundColor: '#df4646', justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{fontSize: 24}}>{card.question}</Text>
+                <Text style={{fontSize: 19, fontStyle: 'italic'}}>{card.question}</Text>
             </SafeAreaView>
             <SafeAreaView style={{ flex: 0.5, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center' }}>
-                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'space-around' }}>
+                <View style={{ flex: 0.5, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     {card && card.answers && card.answers.map((answer, index) => (
-                          <TouchableOpacity onPress={() => index+1 === card.correctAnswerIndex ? alert('C0rr3ct!'):alert('Wr0nG!')}> 
-                            <Text>| {answer} |</Text>
+                          <TouchableOpacity onPress={() => index+1 === card.correctAnswerIndex ? Alert.alert(
+                            'C0rr3ct!',
+                            '0nto the n3xt one!',
+                            [
+                                {text: 'Cancel', onPress: () => navigation.navigate('Main')},
+                                {text: 'Next', onPress: () => updatedState},
+                            ],
+                            {cancelable: false},
+                            ):Alert.alert(
+                                'Wr0ng!',
+                                'g0 again!',
+                                {text: 'Ok'},
+                            )}> 
+                            <Text>|{answer}|</Text>
                         </TouchableOpacity> 
                     ))}
                 </View>
-
+               
             </SafeAreaView>
         </>
     )
