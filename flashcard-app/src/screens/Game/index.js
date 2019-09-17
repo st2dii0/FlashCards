@@ -26,28 +26,20 @@ export default Game = ({ navigation }) => {
         })
     };
     
-    const handleClick = (index) =>{
-        if (index+1 === answer.correctAnswerIndex){
-            alert('Correct answer')
-        } else {
-            alert('Wrong answer')
-        }
-    } 
-
     return (
         <>
             <SafeAreaView style={{ flex: 1, backgroundColor: '#df4646', justifyContent: 'center', alignItems: 'center' }}>
                 <Text style={{fontSize: 24}}>{card.question}</Text>
             </SafeAreaView>
             <SafeAreaView style={{ flex: 0.5, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center' }}>
-                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'space-around' }}>
                     {card && card.answers && card.answers.map((answer, index) => (
-                        
-                        <TouchableOpacity onPress={index+1 === answer.correctAnswerIndex ? alert('Correct answer') : alert('Wrong answer')}>
-                            <Text> {answer}  </Text>
+                          <TouchableOpacity onPress={() => index+1 === card.correctAnswerIndex ? alert('C0rr3ct!'):alert('Wr0nG!')}> 
+                            <Text>| {answer} |</Text>
                         </TouchableOpacity> 
                     ))}
                 </View>
+
             </SafeAreaView>
         </>
     )
